@@ -1,2 +1,2 @@
 # env
-Personal dotfiles and development environment setup for Ubuntu/Debian-based systems.
+Personal dotfiles and development environment setup for Debian-based systems.

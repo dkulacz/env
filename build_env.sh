@@ -36,9 +36,19 @@ sudo apt-get -y install qemu-kvm wine
 # gcc g++ gdb cmake ninja
 sudo apt-get -y install build-essential make gcc-12 g++ gdb cmake ninja-build
 
+# enable autorandr service (automatically changes display(s) layout when docked/undocked)
+systemctl --user enable --now autorandr.service
+autorandr --default laptop
+
+# enable auto suspend when lid closed (only when undocked and not powered externally)
+echo 'HandleLidSwitch=suspend' | sudo tee nano /etc/systemd/logind.conf
+
+# sudo allowance rules for cpu governor selection
+echo 'dkulacz ALL=(root) NOPASSWD: /usr/bin/cpupower frequency-set -g *' | sudo tee /etc/sudoers.d/cpu-governor
+
 # todo: add into .zshrc
 #       export QT_QPA_PLATFORMTHEME=gtk3 # fix for krusader icons on i3
-#       alias fff="fzf --preview 'batcat --color=always --style=numbers --line-range=:500 {}'"
+#       alias ff="fzf --multi --preview 'batcat --color=always --style=numbers --line-range=:500 {}'"
 
 # todo: docker
 # todo: neovim + lazyvim/lazygit/lazydocker + zoxide + ripgrep + harpoon
@@ -58,5 +68,3 @@ sudo apt-get -y install build-essential make gcc-12 g++ gdb cmake ninja-build
 
 # todo: sudo apt-get -y install exiv2 exiftool
 # todo: sudo apt-get -y install wine64-5.0.0 winetricks ttf-mscorefonts-installer
-
-# todo: i3 -> monitor layout change when lid open/close (bind events with autorandr calls)
