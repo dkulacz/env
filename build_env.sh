@@ -19,7 +19,7 @@ mv oh-my-zsh ~/.oh-my-zsh && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zsh
 sudo apt-get -y install i3 i3status i3lock-fancy dmenu xsettingsd
 
 # i3-wm - helpers
-sudo apt-get -y install rofi autorandr feh eog sct scrot blueman brightnessctl volumeicon-alsa
+sudo apt-get -y install rofi autorandr feh eog sct scrot blueman brightnessctl volumeicon-alsa linux-cpupower
 sudo apt-get -y install tmux fzf bat ncal krusader krename kate kcalc meld
 
 # tools
